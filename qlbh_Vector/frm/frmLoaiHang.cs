@@ -31,6 +31,7 @@ namespace qlbh_Vector.frm
         private void frmLoaiHang_Load(object sender, EventArgs e)
         {
             taiDataLH();
+            
             /*
             clsKetNoi cn = new clsKetNoi();
             if (cn.ketNoi()) {
@@ -45,7 +46,18 @@ namespace qlbh_Vector.frm
             dgvLoaiHang.DataSource = lh.laydulieuLoaiHang(sql);
 
         }
-
+        private void dgvLoaiHang_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                txtMaLH.Text = dgvLoaiHang.CurrentRow.Cells[0].Value.ToString();
+                txtLoaiHang.Text = dgvLoaiHang.CurrentRow.Cells[1].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng chọn loại hàng cần sửa!");
+            }
+        }
         private void button6_Click(object sender, EventArgs e)
         {
 
@@ -53,12 +65,29 @@ namespace qlbh_Vector.frm
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            /*
             trangthai = "them";
             txtMaLH.Text = "";
             txtLoaiHang.Text = "";
             txtMaLH.Enabled = true;
             txtLoaiHang.Enabled = true;
             txtMaLH.Focus();
+            */
+            if (string.IsNullOrWhiteSpace(txtMaLH.Text) || string.IsNullOrWhiteSpace(txtLoaiHang.Text))
+            {
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin!");
+                return;
+            }
+            clsLoaiHang lh = new clsLoaiHang();
+            lh.MaLoaiHang = txtMaLH.Text.Trim();
+            lh.TenLoaiHang = txtLoaiHang.Text.Trim();
+            lh.themLH();
+            MessageBox.Show("Thêm loại hàng thành công!");
+            taiDataLH();
+
+            txtMaLH.Text = "";
+            txtLoaiHang.Text = "";
+
 
         }
 
@@ -90,18 +119,7 @@ namespace qlbh_Vector.frm
 
         }
 
-        private void dgvLoaiHang_SelectionChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                txtMaLH.Text = dgvLoaiHang.CurrentRow.Cells[0].Value.ToString();
-                txtLoaiHang.Text = dgvLoaiHang.CurrentRow.Cells[1].Value.ToString();
-            }
-            catch(Exception ex)
-            {
-                //
-            }
-        }
+       
 
         private void btnSua_Click(object sender, EventArgs e)
         {
@@ -110,11 +128,22 @@ namespace qlbh_Vector.frm
                 MessageBox.Show("Vui lòng chọn loại hàng cần sửa!");
                 return;
             }
+            
+                clsLoaiHang lhs = new clsLoaiHang();
+                lhs.MaLoaiHang = txtMaLH.Text.Trim();
+                lhs.TenLoaiHang = txtLoaiHang.Text.Trim();
+                lhs.suaLH();
+                MessageBox.Show("Cập nhật loại hàng thành công!");
+                taiDataLH();
+           
 
+
+            /*
             trangthai = "sua";
             txtMaLH.Enabled = false; // Không cho sửa mã
             txtLoaiHang.Enabled = true;
             txtLoaiHang.Focus();
+            */
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -146,6 +175,11 @@ namespace qlbh_Vector.frm
                     MessageBox.Show("Lỗi khi xóa loại hàng: " + ex.Message);
                 }
             }
+        }
+
+        private void dgvLoaiHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

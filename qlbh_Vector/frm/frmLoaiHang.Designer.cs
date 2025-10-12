@@ -41,8 +41,8 @@
             this.btnThoat = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvLoaiHang = new System.Windows.Forms.DataGridView();
-            this.TenLoaiHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaLoaiHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenLoaiHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiHang)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +69,6 @@
             // 
             // txtMaLH
             // 
-            this.txtMaLH.Enabled = false;
             this.txtMaLH.Location = new System.Drawing.Point(119, 87);
             this.txtMaLH.Name = "txtMaLH";
             this.txtMaLH.Size = new System.Drawing.Size(214, 20);
@@ -87,7 +86,6 @@
             // 
             // txtLoaiHang
             // 
-            this.txtLoaiHang.Enabled = false;
             this.txtLoaiHang.Location = new System.Drawing.Point(119, 133);
             this.txtLoaiHang.Name = "txtLoaiHang";
             this.txtLoaiHang.Size = new System.Drawing.Size(214, 20);
@@ -135,7 +133,7 @@
             // 
             // btnHoan
             // 
-            this.btnHoan.Location = new System.Drawing.Point(485, 140);
+            this.btnHoan.Location = new System.Drawing.Point(485, 135);
             this.btnHoan.Name = "btnHoan";
             this.btnHoan.Size = new System.Drawing.Size(75, 23);
             this.btnHoan.TabIndex = 9;
@@ -144,7 +142,7 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Location = new System.Drawing.Point(635, 135);
+            this.btnThoat.Location = new System.Drawing.Point(635, 131);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 10;
@@ -166,13 +164,20 @@
             // 
             this.dgvLoaiHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLoaiHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.TenLoaiHang,
-            this.MaLoaiHang});
+            this.MaLoaiHang,
+            this.TenLoaiHang});
             this.dgvLoaiHang.Location = new System.Drawing.Point(0, 20);
             this.dgvLoaiHang.Name = "dgvLoaiHang";
             this.dgvLoaiHang.Size = new System.Drawing.Size(762, 243);
             this.dgvLoaiHang.TabIndex = 0;
+            this.dgvLoaiHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiHang_CellContentClick);
             this.dgvLoaiHang.SelectionChanged += new System.EventHandler(this.dgvLoaiHang_SelectionChanged);
+            // 
+            // MaLoaiHang
+            // 
+            this.MaLoaiHang.DataPropertyName = "MALOAIHANG";
+            this.MaLoaiHang.HeaderText = "Mã Loại Hàng";
+            this.MaLoaiHang.Name = "MaLoaiHang";
             // 
             // TenLoaiHang
             // 
@@ -180,12 +185,6 @@
             this.TenLoaiHang.DataPropertyName = "TENLOAIHANG";
             this.TenLoaiHang.HeaderText = "Tên Loại Hàng";
             this.TenLoaiHang.Name = "TenLoaiHang";
-            // 
-            // MaLoaiHang
-            // 
-            this.MaLoaiHang.DataPropertyName = "MALOAIHANG";
-            this.MaLoaiHang.HeaderText = "Mã Loại Hàng";
-            this.MaLoaiHang.Name = "MaLoaiHang";
             // 
             // frmLoaiHang
             // 
@@ -230,7 +229,7 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvLoaiHang;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaLoaiHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenLoaiHang;
     }
 }

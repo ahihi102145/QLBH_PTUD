@@ -18,11 +18,13 @@ namespace qlbh_Vector.cls
         {
             clsKetNoi cn = new clsKetNoi();
             String sql = "INSERT INTO LoaiHang(MALOAIHANG,TENLOAIHANG)"+
-                "VALUES ('"+ MaLoaiHang + "',N'"+ TenLoaiHang + "')";
+                "VALUES (@MaLH, @TenLH)";
             try
             {
                 cn.ketNoi();
                 SqlCommand cmd = new SqlCommand(sql, cn.con);
+                cmd.Parameters.AddWithValue("@MaLH", MaLoaiHang);
+                cmd.Parameters.AddWithValue("@TenLH", TenLoaiHang);
                 cmd.ExecuteNonQuery();
                 cn.closeConnect();
             }catch(Exception ex)
@@ -33,11 +35,13 @@ namespace qlbh_Vector.cls
         public void suaLH()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "UPDATE LoaiHang SET TENLOAIHANG = '"+TenLoaiHang+"' WHERE MALOAIHANG='"+MaLoaiHang+"'";
+            string sql = "UPDATE LoaiHang SET TENLOAIHANG = @TenLH WHERE MALOAIHANG= @MALH";
             try
             {
                 cn.ketNoi();
                 SqlCommand cmd = new SqlCommand(sql, cn.con);
+                cmd.Parameters.AddWithValue("@MaLH", MaLoaiHang);
+                cmd.Parameters.AddWithValue("@TenLH", TenLoaiHang);
                 cmd.ExecuteNonQuery();
                 cn.closeConnect();
             }
@@ -50,11 +54,12 @@ namespace qlbh_Vector.cls
         public void  XoaLH()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "DELETE FROM LoaiHang WHERE MALOAIHANG ='"+MaLoaiHang+"'";
+            string sql = "DELETE FROM LoaiHang WHERE MALOAIHANG = @MaLH";
             try
             {
                 cn.ketNoi();
                 SqlCommand cmd = new SqlCommand(sql, cn.con);
+                cmd.Parameters.AddWithValue("@MaLH", MaLoaiHang);
                 cmd.ExecuteNonQuery();
                 cn.closeConnect();
             }
@@ -78,7 +83,7 @@ namespace qlbh_Vector.cls
             }
             catch (Exception ex)
             {
-                return null;
+               return null;
                 //MessageBox.Show("DELETE error " + ex.ToString());
             }
         }
