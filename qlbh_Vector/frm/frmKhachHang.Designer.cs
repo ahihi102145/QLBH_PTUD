@@ -35,6 +35,13 @@
             this.btnXoaKH = new System.Windows.Forms.Button();
             this.btnTHEMKH = new System.Windows.Forms.Button();
             this.dgvKh = new System.Windows.Forms.DataGridView();
+            this.MAKHACHHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENCONGTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENGIAODICH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIENTHOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FAX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnHoan = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -56,13 +63,6 @@
             this.txtmkh = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.MAKHACHHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENCONGTY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENGIAODICH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIENTHOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FAX = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,7 +138,52 @@
             this.dgvKh.Name = "dgvKh";
             this.dgvKh.Size = new System.Drawing.Size(776, 243);
             this.dgvKh.TabIndex = 45;
-            this.dgvKh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiHang_CellContentClick);
+            this.dgvKh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKh_CellClick);
+            this.dgvKh.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKh_CellContentClick);
+            // 
+            // MAKHACHHANG
+            // 
+            this.MAKHACHHANG.DataPropertyName = "MAKHACHHANG";
+            this.MAKHACHHANG.HeaderText = "Mã khách hàng";
+            this.MAKHACHHANG.Name = "MAKHACHHANG";
+            // 
+            // TENCONGTY
+            // 
+            this.TENCONGTY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TENCONGTY.DataPropertyName = "TENCONGTY";
+            this.TENCONGTY.HeaderText = "Tên công ty";
+            this.TENCONGTY.MinimumWidth = 40;
+            this.TENCONGTY.Name = "TENCONGTY";
+            // 
+            // TENGIAODICH
+            // 
+            this.TENGIAODICH.DataPropertyName = "TENGIAODICH";
+            this.TENGIAODICH.HeaderText = "Tên giao dịch";
+            this.TENGIAODICH.Name = "TENGIAODICH";
+            // 
+            // DIACHI
+            // 
+            this.DIACHI.DataPropertyName = "DIACHI";
+            this.DIACHI.HeaderText = "Địa chỉ";
+            this.DIACHI.Name = "DIACHI";
+            // 
+            // Email
+            // 
+            this.Email.DataPropertyName = "EMAIL";
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            // 
+            // DIENTHOAI
+            // 
+            this.DIENTHOAI.DataPropertyName = "DIENTHOAI";
+            this.DIENTHOAI.HeaderText = "Điện thoại";
+            this.DIENTHOAI.Name = "DIENTHOAI";
+            // 
+            // FAX
+            // 
+            this.FAX.DataPropertyName = "FAX";
+            this.FAX.HeaderText = "Fax";
+            this.FAX.Name = "FAX";
             // 
             // btnThoat
             // 
@@ -316,50 +361,6 @@
             this.label1.Size = new System.Drawing.Size(159, 16);
             this.label1.TabIndex = 26;
             this.label1.Text = "Danh mục khách hàng";
-            // 
-            // MAKHACHHANG
-            // 
-            this.MAKHACHHANG.DataPropertyName = "MAKHACHHANG";
-            this.MAKHACHHANG.HeaderText = "Mã khách hàng";
-            this.MAKHACHHANG.Name = "MAKHACHHANG";
-            // 
-            // TENCONGTY
-            // 
-            this.TENCONGTY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TENCONGTY.DataPropertyName = "TENCONGTY";
-            this.TENCONGTY.HeaderText = "Tên công ty";
-            this.TENCONGTY.MinimumWidth = 40;
-            this.TENCONGTY.Name = "TENCONGTY";
-            // 
-            // TENGIAODICH
-            // 
-            this.TENGIAODICH.DataPropertyName = "TENGIAODICH";
-            this.TENGIAODICH.HeaderText = "Tên giao dịch";
-            this.TENGIAODICH.Name = "TENGIAODICH";
-            // 
-            // DIACHI
-            // 
-            this.DIACHI.DataPropertyName = "DIACHI";
-            this.DIACHI.HeaderText = "Địa chỉ";
-            this.DIACHI.Name = "DIACHI";
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "EMAIL";
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            // 
-            // DIENTHOAI
-            // 
-            this.DIENTHOAI.DataPropertyName = "DIENTHOAI";
-            this.DIENTHOAI.HeaderText = "Điện thoại";
-            this.DIENTHOAI.Name = "DIENTHOAI";
-            // 
-            // FAX
-            // 
-            this.FAX.DataPropertyName = "FAX";
-            this.FAX.HeaderText = "Fax";
-            this.FAX.Name = "FAX";
             // 
             // frmKhachHang
             // 

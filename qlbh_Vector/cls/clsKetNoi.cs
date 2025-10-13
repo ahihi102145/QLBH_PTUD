@@ -9,7 +9,7 @@ namespace qlbh_Vector.cls
 {
     class clsKetNoi
     {
-        public String ChuoiKetNoi = "Data Source= ADMIN-PC" +
+        public String ChuoiKetNoi = "Data Source= 52HZ\\SQLEXPRESS" +
                                     ";database= QLBH"+
                                     ";Integrated Security = True"+
                                     ";User Instance = False";

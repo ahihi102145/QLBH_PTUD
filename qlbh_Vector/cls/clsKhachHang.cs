@@ -58,7 +58,7 @@ namespace qlbh_Vector.cls
                 cn.ketNoi();
                 SqlCommand cmd = new SqlCommand(sql, cn.con);
                 cmd.Parameters.AddWithValue("@MaKhachHang", MaKhachHang);
-                cmd.Parameters.AddWithValue("@HTencongty", Tencongty);
+                cmd.Parameters.AddWithValue("@Tencongty", Tencongty);
                 cmd.Parameters.AddWithValue("@Tengiaodich", Tengiaodich);
                 cmd.Parameters.AddWithValue("@Diachi", Diachi);
                 cmd.Parameters.AddWithValue("@Email", Email);
@@ -77,7 +77,8 @@ namespace qlbh_Vector.cls
         public void xoaKH()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "DELETE FROM  WHERE MAKHACHHANG = @MaKhachHang";
+            string sql = "DELETE FROM KHACHHANG WHERE MAKHACHHANG = @MaKhachHang";
+
             try
             {
                 cn.ketNoi();

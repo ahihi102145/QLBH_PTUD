@@ -21,32 +21,14 @@ namespace qlbh_Vector.frm
         {
             string sql = "SELECT * FROM NHANVIEN";
             clsNhanVien nv = new clsNhanVien();
-            dgvLoaiHang.DataSource = nv.laydulieuNhanVien(sql);
+            dgvNhanVien.DataSource = nv.laydulieuNhanVien(sql);
 
         }
         private void frmNhanvien_Load(object sender, EventArgs e)
         {
             taiDataNV();
         }
-        private void dgvLoaiHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                txtmnv.Text = dgvLoaiHang.CurrentRow.Cells[0].Value.ToString();
-                txtho.Text = dgvLoaiHang.CurrentRow.Cells[1].Value.ToString();
-                txtten.Text = dgvLoaiHang.CurrentRow.Cells[2].Value.ToString();
-                dtpngaysinh.Text = dgvLoaiHang.CurrentRow.Cells[3].Value.ToString();
-                dtpngaylamviec.Text = dgvLoaiHang.CurrentRow.Cells[4].Value.ToString();
-                txtdiachi.Text = dgvLoaiHang.CurrentRow.Cells[5].Value.ToString();
-                txtSDT.Text = dgvLoaiHang.CurrentRow.Cells[6].Value.ToString();
-                txtLCB.Text = dgvLoaiHang.CurrentRow.Cells[7].Value.ToString();
-                txtPC.Text = dgvLoaiHang.CurrentRow.Cells[8].Value.ToString();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Vui lòng chọn nhân viên cần sửa!");
-            }
-        }
+       
         private void button2_Click(object sender, EventArgs e)
         {
             clsNhanVien nv = new clsNhanVien();
@@ -113,6 +95,26 @@ namespace qlbh_Vector.frm
                 {
                     MessageBox.Show("Lỗi khi xóa nhân viên: " + ex.Message);
                 }
+            }
+        }
+
+        private void dgvNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtmnv.Text = dgvNhanVien.CurrentRow.Cells[0].Value.ToString();
+                txtho.Text = dgvNhanVien.CurrentRow.Cells[1].Value.ToString();
+                txtten.Text = dgvNhanVien.CurrentRow.Cells[2].Value.ToString();
+                dtpngaysinh.Text = dgvNhanVien.CurrentRow.Cells[3].Value.ToString();
+                dtpngaylamviec.Text = dgvNhanVien.CurrentRow.Cells[4].Value.ToString();
+                txtdiachi.Text = dgvNhanVien.CurrentRow.Cells[5].Value.ToString();
+                txtSDT.Text = dgvNhanVien.CurrentRow.Cells[6].Value.ToString();
+                txtLCB.Text = dgvNhanVien.CurrentRow.Cells[7].Value.ToString();
+                txtPC.Text = dgvNhanVien.CurrentRow.Cells[8].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng chọn nhân viên cần sửa!");
             }
         }
     }

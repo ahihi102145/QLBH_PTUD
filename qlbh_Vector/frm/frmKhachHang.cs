@@ -29,25 +29,7 @@ namespace qlbh_Vector.frm
             dgvKh.DataSource = kh.laydulieuKH(sql);
 
         }
-        private void dgvLoaiHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                txtmkh.Text = dgvKh.CurrentRow.Cells[0].Value.ToString();
-                txtTenct.Text = dgvKh.CurrentRow.Cells[1].Value.ToString();
-                txttengiaodich.Text = dgvKh.CurrentRow.Cells[2].Value.ToString();
-                txtDiaChi.Text = dgvKh.CurrentRow.Cells[3].Value.ToString();
-                txtemail.Text = dgvKh.CurrentRow.Cells[4].Value.ToString();
-                txtsdt.Text = dgvKh.CurrentRow.Cells[5].Value.ToString();
-                txtFax.Text = dgvKh.CurrentRow.Cells[6].Value.ToString();
-              
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Vui lòng chọn KH cần sửa!");
-            }
-        }
-
+       
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             taiDataKH();
@@ -114,6 +96,30 @@ namespace qlbh_Vector.frm
                 {
                     MessageBox.Show("Lỗi khi xóa KH: " + ex.Message);
                 }
+            }
+        }
+
+        private void dgvKh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvKh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtmkh.Text = dgvKh.CurrentRow.Cells[0].Value.ToString();
+                txtTenct.Text = dgvKh.CurrentRow.Cells[1].Value.ToString();
+                txttengiaodich.Text = dgvKh.CurrentRow.Cells[2].Value.ToString();
+                txtDiaChi.Text = dgvKh.CurrentRow.Cells[3].Value.ToString();
+                txtemail.Text = dgvKh.CurrentRow.Cells[4].Value.ToString();
+                txtsdt.Text = dgvKh.CurrentRow.Cells[5].Value.ToString();
+                txtFax.Text = dgvKh.CurrentRow.Cells[6].Value.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng chọn KH cần sửa!");
             }
         }
     }
