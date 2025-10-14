@@ -53,5 +53,15 @@ namespace qlbh_Vector
             frmDonDatHang dh = new frmDonDatHang();
             dh.Show();
         }
+
+        private void nghiệpVụToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quảnLýĐơnĐặtHnagfToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

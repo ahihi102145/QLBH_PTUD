@@ -27,6 +27,11 @@ namespace qlbh_Vector.frm
         {
 
         }
+        private void LamMoiForm()
+        {
+            txtMaLH.Clear();
+            txtLoaiHang.Clear();
+        }
 
         private void frmLoaiHang_Load(object sender, EventArgs e)
         {
@@ -84,9 +89,8 @@ namespace qlbh_Vector.frm
             lh.themLH();
             MessageBox.Show("Thêm loại hàng thành công!");
             taiDataLH();
-
-            txtMaLH.Text = "";
-            txtLoaiHang.Text = "";
+            LamMoiForm();
+          
 
 
         }
@@ -135,15 +139,8 @@ namespace qlbh_Vector.frm
                 lhs.suaLH();
                 MessageBox.Show("Cập nhật loại hàng thành công!");
                 taiDataLH();
-           
 
-
-            /*
-            trangthai = "sua";
-            txtMaLH.Enabled = false; // Không cho sửa mã
-            txtLoaiHang.Enabled = true;
-            txtLoaiHang.Focus();
-            */
+                LamMoiForm();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -167,8 +164,7 @@ namespace qlbh_Vector.frm
                     lh.XoaLH();
                     MessageBox.Show("Xóa loại hàng thành công!");
                     taiDataLH();
-                    txtMaLH.Text = "";
-                    txtLoaiHang.Text = "";
+                    LamMoiForm();
                 }
                 catch (Exception ex)
                 {

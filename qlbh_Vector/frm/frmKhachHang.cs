@@ -22,6 +22,17 @@ namespace qlbh_Vector.frm
         {
 
         }
+        private void LamMoiForm()
+        {
+            txtmkh.Clear();
+            txtTenct.Clear();
+            txttengiaodich.Clear();
+            txtDiaChi.Clear();
+            txtemail.Clear();
+            txtsdt.Clear();
+            txtFax.Clear();
+        }
+
         private void taiDataKH()
         {
             string sql = "SELECT * FROM KHACHHANG";
@@ -29,25 +40,7 @@ namespace qlbh_Vector.frm
             dgvKh.DataSource = kh.laydulieuKH(sql);
 
         }
-        private void dgvLoaiHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                txtmkh.Text = dgvKh.CurrentRow.Cells[0].Value.ToString();
-                txtTenct.Text = dgvKh.CurrentRow.Cells[1].Value.ToString();
-                txttengiaodich.Text = dgvKh.CurrentRow.Cells[2].Value.ToString();
-                txtDiaChi.Text = dgvKh.CurrentRow.Cells[3].Value.ToString();
-                txtemail.Text = dgvKh.CurrentRow.Cells[4].Value.ToString();
-                txtsdt.Text = dgvKh.CurrentRow.Cells[5].Value.ToString();
-                txtFax.Text = dgvKh.CurrentRow.Cells[6].Value.ToString();
-              
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Vui lòng chọn KH cần sửa!");
-            }
-        }
-
+       
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             taiDataKH();
@@ -67,6 +60,7 @@ namespace qlbh_Vector.frm
             MessageBox.Show("Thêm KH thành công!");
 
             taiDataKH();
+            LamMoiForm();
 
         }
 
@@ -84,6 +78,7 @@ namespace qlbh_Vector.frm
             MessageBox.Show("Sửa KH thành công!");
 
             taiDataKH();
+            LamMoiForm();
 
         }
 
@@ -108,12 +103,36 @@ namespace qlbh_Vector.frm
                     kh.xoaKH();
                     MessageBox.Show("Xóa KH thành công!");
                     taiDataKH();
-
+                    LamMoiForm();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Lỗi khi xóa KH: " + ex.Message);
                 }
+            }
+        }
+
+        private void dgvKh_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvKh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtmkh.Text = dgvKh.CurrentRow.Cells[0].Value.ToString();
+                txtTenct.Text = dgvKh.CurrentRow.Cells[1].Value.ToString();
+                txttengiaodich.Text = dgvKh.CurrentRow.Cells[2].Value.ToString();
+                txtDiaChi.Text = dgvKh.CurrentRow.Cells[3].Value.ToString();
+                txtemail.Text = dgvKh.CurrentRow.Cells[4].Value.ToString();
+                txtsdt.Text = dgvKh.CurrentRow.Cells[5].Value.ToString();
+                txtFax.Text = dgvKh.CurrentRow.Cells[6].Value.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Vui lòng chọn KH cần sửa!");
             }
         }
     }

@@ -17,7 +17,7 @@ namespace qlbh_Vector.cls
         public void themLH()
         {
             clsKetNoi cn = new clsKetNoi();
-            String sql = "INSERT INTO LoaiHang(MALOAIHANG,TENLOAIHANG)"+
+            String sql = "INSERT INTO LOAIHANG(MALOAIHANG,TENLOAIHANG)"+
                 "VALUES (@MaLH, @TenLH)";
             try
             {
@@ -35,7 +35,7 @@ namespace qlbh_Vector.cls
         public void suaLH()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "UPDATE LoaiHang SET TENLOAIHANG = @TenLH WHERE MALOAIHANG= @MALH";
+            string sql = "UPDATE LOAIHANG SET TENLOAIHANG = @TenLH WHERE MALOAIHANG= @MALH";
             try
             {
                 cn.ketNoi();
@@ -54,7 +54,7 @@ namespace qlbh_Vector.cls
         public void  XoaLH()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "DELETE FROM LoaiHang WHERE MALOAIHANG = @MaLH";
+            string sql = "DELETE FROM LOAIHANG WHERE MALOAIHANG = @MaLH";
             try
             {
                 cn.ketNoi();

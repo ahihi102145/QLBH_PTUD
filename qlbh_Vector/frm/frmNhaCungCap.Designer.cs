@@ -138,7 +138,7 @@
             this.dgvNCC.Name = "dgvNCC";
             this.dgvNCC.Size = new System.Drawing.Size(776, 243);
             this.dgvNCC.TabIndex = 73;
-            this.dgvNCC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNCC_CellContentClick);
+            this.dgvNCC.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNCC_CellClick);
             // 
             // btnThoat
             // 
@@ -312,9 +312,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(314, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 16);
+            this.label1.Size = new System.Drawing.Size(172, 16);
             this.label1.TabIndex = 58;
-            this.label1.Text = "Danh mục nhân viên";
+            this.label1.Text = "Danh mục nhà cung cấp";
             // 
             // MACONGTY
             // 
@@ -332,7 +332,7 @@
             // 
             // TENGIAODICH
             // 
-            this.TENGIAODICH.DataPropertyName = "TENGIAODICH ";
+            this.TENGIAODICH.DataPropertyName = "TENGIAODICH";
             this.TENGIAODICH.HeaderText = "Tên giao dịch";
             this.TENGIAODICH.Name = "TENGIAODICH";
             // 

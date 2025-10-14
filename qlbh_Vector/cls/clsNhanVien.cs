@@ -24,7 +24,7 @@ namespace qlbh_Vector.cls
         {
             clsKetNoi cn = new clsKetNoi();
             string sql = "INSERT INTO NHANVIEN (MANHANVIEN, HO, TEN, NGAYSINH, NGAYLAMVIEC, DIACHI, DIENTHOAI, LUONGCOBAN, PHUCAP) " +
-             "VALUES (@MaNV, @Ho, @Ten, @NgaySinh, @NgayLamViec, @DiaChi, @DienThoai, @LuongCb, @PhuCap)";
+             "VALUES (@MaNV, @Ho, @Ten, @NgaySinh, @NgayLamViec, @DiaChi, @DienThoai, @LuongCoBan, @PhuCap)";
 
             try
             {

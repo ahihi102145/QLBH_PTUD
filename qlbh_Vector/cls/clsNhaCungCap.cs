@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using qlbh_Vector.frm;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+
 namespace qlbh_Vector.cls
 {
     class clsNhaCungCap
@@ -16,17 +12,14 @@ namespace qlbh_Vector.cls
         public string Tengiaodich = "";
         public string Diachi = "";
         public string Email = "";
-        public int DienThoai;
-        public int Fax;
-
+        public string DienThoai = "";   
+        public string Fax = "";         
 
         public void themNCC()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "INSERT INTO NHACUNGCAP (MaCongTy , TENCONGTY, TENGIAODICH, DIACHI, EMAIL, DIENTHOAI, FAX) " +
-             "VALUES (@MaCongTy , @Tencongty, @Tengiaodich, @Diachi, @Email, @DienThoai, @Fax)";
-
-
+            string sql = "INSERT INTO NHACUNGCAP (MACONGTY, TENCONGTY, TENGIAODICH, DIACHI, EMAIL, DIENTHOAI, FAX) " +
+                         "VALUES (@MaCongTy, @Tencongty, @Tengiaodich, @Diachi, @Email, @DienThoai, @Fax)";
             try
             {
                 cn.ketNoi();
@@ -41,8 +34,7 @@ namespace qlbh_Vector.cls
                 cmd.ExecuteNonQuery();
                 cn.closeConnect();
             }
-            catch
-               (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi thêm NCC: " + ex.Message);
             }
@@ -51,8 +43,8 @@ namespace qlbh_Vector.cls
         public void suaNCC()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "UPDATE NHACUNGCAP SET TENCONGTY=@Tencongty,TENGIAODICH=@Tengiaodich, DIACHI=@Diachi, " +
-                "EMAIL=@Email, DIENTHOAI=@DienThoai, FAX=@Fax WHERE MACONGTY=@MaCongTy";
+            string sql = "UPDATE NHACUNGCAP SET TENCONGTY=@Tencongty, TENGIAODICH=@Tengiaodich, DIACHI=@Diachi, " +
+                         "EMAIL=@Email, DIENTHOAI=@DienThoai, FAX=@Fax WHERE MACONGTY=@MaCongTy";
             try
             {
                 cn.ketNoi();
@@ -67,8 +59,7 @@ namespace qlbh_Vector.cls
                 cmd.ExecuteNonQuery();
                 cn.closeConnect();
             }
-            catch
-               (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi sửa NCC: " + ex.Message);
             }
@@ -77,7 +68,7 @@ namespace qlbh_Vector.cls
         public void xoaNCC()
         {
             clsKetNoi cn = new clsKetNoi();
-            string sql = "DELETE FROM  NHACUNGCAP WHERE MACONGTY = @MaCongTy";
+            string sql = "DELETE FROM NHACUNGCAP WHERE MACONGTY = @MaCongTy";
             try
             {
                 cn.ketNoi();
@@ -90,19 +81,18 @@ namespace qlbh_Vector.cls
             {
                 MessageBox.Show("Lỗi khi xóa NCC: " + ex.Message);
             }
-
         }
-        public DataTable laydulieuNCC(String sql)
+
+        public DataTable laydulieuNCC(string sql)
         {
             clsKetNoi cn = new clsKetNoi();
             DataSet dataSet = new DataSet();
             try
             {
                 cn.ketNoi();
-                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sql, cn.con);
-                sqlDataAdapter.Fill(dataSet, sql);
-                DataTable tb = dataSet.Tables[0];
-                return tb;
+                SqlDataAdapter adapter = new SqlDataAdapter(sql, cn.con);
+                adapter.Fill(dataSet);
+                return dataSet.Tables[0];
             }
             catch (Exception ex)
             {

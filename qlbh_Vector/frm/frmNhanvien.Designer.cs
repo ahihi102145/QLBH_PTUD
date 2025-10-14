@@ -47,7 +47,16 @@
             this.txtPC = new System.Windows.Forms.TextBox();
             this.dtpngaysinh = new System.Windows.Forms.DateTimePicker();
             this.dtpngaylamviec = new System.Windows.Forms.DateTimePicker();
-            this.dgvLoaiHang = new System.Windows.Forms.DataGridView();
+            this.dgvNhanVien = new System.Windows.Forms.DataGridView();
+            this.MANHANVIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYSINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NGAYLAMVIEC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DIENTHOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LUONGCOBAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PHUCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnHoan = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
@@ -60,16 +69,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button1_sua = new System.Windows.Forms.Button();
             this.button1_luu = new System.Windows.Forms.Button();
-            this.MANHANVIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYSINH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NGAYLAMVIEC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIACHI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DIENTHOAI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LUONGCOBAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PHUCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -228,10 +228,10 @@
             this.dtpngaylamviec.Size = new System.Drawing.Size(100, 20);
             this.dtpngaylamviec.TabIndex = 4;
             // 
-            // dgvLoaiHang
+            // dgvNhanVien
             // 
-            this.dgvLoaiHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLoaiHang.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MANHANVIEN,
             this.HO,
             this.TEN,
@@ -241,11 +241,67 @@
             this.DIENTHOAI,
             this.LUONGCOBAN,
             this.PHUCAP});
-            this.dgvLoaiHang.Location = new System.Drawing.Point(12, 195);
-            this.dgvLoaiHang.Name = "dgvLoaiHang";
-            this.dgvLoaiHang.Size = new System.Drawing.Size(776, 243);
-            this.dgvLoaiHang.TabIndex = 11;
-            this.dgvLoaiHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiHang_CellContentClick);
+            this.dgvNhanVien.Location = new System.Drawing.Point(12, 195);
+            this.dgvNhanVien.Name = "dgvNhanVien";
+            this.dgvNhanVien.Size = new System.Drawing.Size(776, 243);
+            this.dgvNhanVien.TabIndex = 11;
+            this.dgvNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNhanVien_CellClick);
+            // 
+            // MANHANVIEN
+            // 
+            this.MANHANVIEN.DataPropertyName = "MANHANVIEN";
+            this.MANHANVIEN.HeaderText = "Mã nhân viên";
+            this.MANHANVIEN.Name = "MANHANVIEN";
+            // 
+            // HO
+            // 
+            this.HO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.HO.DataPropertyName = "HO";
+            this.HO.HeaderText = "Họ";
+            this.HO.MinimumWidth = 25;
+            this.HO.Name = "HO";
+            // 
+            // TEN
+            // 
+            this.TEN.DataPropertyName = "TEN";
+            this.TEN.HeaderText = "Tên";
+            this.TEN.Name = "TEN";
+            // 
+            // NGAYSINH
+            // 
+            this.NGAYSINH.DataPropertyName = "NGAYSINH";
+            this.NGAYSINH.HeaderText = "Ngày sinh";
+            this.NGAYSINH.Name = "NGAYSINH";
+            // 
+            // NGAYLAMVIEC
+            // 
+            this.NGAYLAMVIEC.DataPropertyName = "NGAYLAMVIEC";
+            this.NGAYLAMVIEC.HeaderText = "Ngày làm việc";
+            this.NGAYLAMVIEC.Name = "NGAYLAMVIEC";
+            // 
+            // DIACHI
+            // 
+            this.DIACHI.DataPropertyName = "DIACHI";
+            this.DIACHI.HeaderText = "Địa chỉ";
+            this.DIACHI.Name = "DIACHI";
+            // 
+            // DIENTHOAI
+            // 
+            this.DIENTHOAI.DataPropertyName = "DIENTHOAI";
+            this.DIENTHOAI.HeaderText = "Điện thoại";
+            this.DIENTHOAI.Name = "DIENTHOAI";
+            // 
+            // LUONGCOBAN
+            // 
+            this.LUONGCOBAN.DataPropertyName = "LUONGCOBAN";
+            this.LUONGCOBAN.HeaderText = "Lương cơ bản";
+            this.LUONGCOBAN.Name = "LUONGCOBAN";
+            // 
+            // PHUCAP
+            // 
+            this.PHUCAP.DataPropertyName = "PHUCAP";
+            this.PHUCAP.HeaderText = "Phụ cấp";
+            this.PHUCAP.Name = "PHUCAP";
             // 
             // btnThoat
             // 
@@ -358,62 +414,6 @@
             this.button1_luu.Text = "Lưu";
             this.button1_luu.UseVisualStyleBackColor = true;
             // 
-            // MANHANVIEN
-            // 
-            this.MANHANVIEN.DataPropertyName = "MANHANVIEN";
-            this.MANHANVIEN.HeaderText = "Mã nhân viên";
-            this.MANHANVIEN.Name = "MANHANVIEN";
-            // 
-            // HO
-            // 
-            this.HO.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.HO.DataPropertyName = "HO";
-            this.HO.HeaderText = "Họ";
-            this.HO.MinimumWidth = 25;
-            this.HO.Name = "HO";
-            // 
-            // TEN
-            // 
-            this.TEN.DataPropertyName = "TEN";
-            this.TEN.HeaderText = "Tên";
-            this.TEN.Name = "TEN";
-            // 
-            // NGAYSINH
-            // 
-            this.NGAYSINH.DataPropertyName = "NGAYSINH";
-            this.NGAYSINH.HeaderText = "Ngày sinh";
-            this.NGAYSINH.Name = "NGAYSINH";
-            // 
-            // NGAYLAMVIEC
-            // 
-            this.NGAYLAMVIEC.DataPropertyName = "NGAYLAMVIEC";
-            this.NGAYLAMVIEC.HeaderText = "Ngày làm việc";
-            this.NGAYLAMVIEC.Name = "NGAYLAMVIEC";
-            // 
-            // DIACHI
-            // 
-            this.DIACHI.DataPropertyName = "DIACHI";
-            this.DIACHI.HeaderText = "Địa chỉ";
-            this.DIACHI.Name = "DIACHI";
-            // 
-            // DIENTHOAI
-            // 
-            this.DIENTHOAI.DataPropertyName = "DIENTHOAI";
-            this.DIENTHOAI.HeaderText = "Điện thoại";
-            this.DIENTHOAI.Name = "DIENTHOAI";
-            // 
-            // LUONGCOBAN
-            // 
-            this.LUONGCOBAN.DataPropertyName = "LUONGCOBAN";
-            this.LUONGCOBAN.HeaderText = "Lương cơ bản";
-            this.LUONGCOBAN.Name = "LUONGCOBAN";
-            // 
-            // PHUCAP
-            // 
-            this.PHUCAP.DataPropertyName = "PHUCAP";
-            this.PHUCAP.HeaderText = "Phụ cấp";
-            this.PHUCAP.Name = "PHUCAP";
-            // 
             // frmNhanvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,7 +425,7 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4_xoa);
             this.Controls.Add(this.btnTHEMNV);
-            this.Controls.Add(this.dgvLoaiHang);
+            this.Controls.Add(this.dgvNhanVien);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnHoan);
             this.Controls.Add(this.btnLuu);
@@ -454,7 +454,7 @@
             this.Name = "frmNhanvien";
             this.Text = "Danh mục nhân viên";
             this.Load += new System.EventHandler(this.frmNhanvien_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNhanVien)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,7 +481,7 @@
         private System.Windows.Forms.TextBox txtPC;
         private System.Windows.Forms.DateTimePicker dtpngaysinh;
         private System.Windows.Forms.DateTimePicker dtpngaylamviec;
-        private System.Windows.Forms.DataGridView dgvLoaiHang;
+        private System.Windows.Forms.DataGridView dgvNhanVien;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnHoan;
         private System.Windows.Forms.Button btnLuu;

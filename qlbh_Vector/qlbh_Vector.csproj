@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cls\clsDonDatHang.cs" />
     <Compile Include="cls\clsKetNoi.cs" />
     <Compile Include="cls\clsKhachHang.cs" />
     <Compile Include="cls\clsLoaiHang.cs" />
+    <Compile Include="cls\clsMatHang.cs" />
     <Compile Include="cls\clsNhaCungCap.cs" />
     <Compile Include="cls\clsNhanVien.cs" />
     <Compile Include="Form1.cs">
