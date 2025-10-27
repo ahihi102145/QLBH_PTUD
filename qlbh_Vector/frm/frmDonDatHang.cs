@@ -3,7 +3,10 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using qlbh_Vector.cls;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
 namespace qlbh_Vector.frm
 {
     public partial class frmDonDatHang : Form
@@ -22,6 +25,7 @@ namespace qlbh_Vector.frm
             LamMoiForm();
         }
 
+<<<<<<< HEAD
         private void NapComboBox()
         {
             clsKetNoi cn = new clsKetNoi();
@@ -199,5 +203,49 @@ namespace qlbh_Vector.frm
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+=======
+       
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void frmDonDatHang_Load(object sender, EventArgs e)
+        {
+           
+           
+
+            taiDataDDH();
+        }
+        private void taiDataDDH()
+        {
+            string sql = "SELECT SOHOADON, TENCONGTY, TENNHANVIEN, NGAYDATHANG, NGAYGIAOHANG, NOIGIAOHANG " +
+                         "FROM DONDATHANG DDH " +
+                         "JOIN NHACUNGCAP NCC ON DDH.MACONGTY = NCC.MACONGTY " +
+                         "JOIN NHANVIEN NV ON DDH.MANHANVIEN = NV.MANHANVIEN";
+
+            clsDonDatHang ddh = new clsDonDatHang();
+            dataGridView1.DataSource = ddh.laydulieuDDH(sql);
+        }
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            
+        }
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
     }
 }

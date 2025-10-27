@@ -11,6 +11,7 @@ namespace qlbh_Vector.frm
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
         private void LamMoiForm()
         {
             txtmacongty.Clear();
@@ -21,6 +22,8 @@ namespace qlbh_Vector.frm
             txtsdt.Clear();
             txtFax.Clear();
         }
+=======
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
 
         private void taiDataNCC()
         {
@@ -107,7 +110,10 @@ namespace qlbh_Vector.frm
                     ncc.xoaNCC();
                     MessageBox.Show("Xóa NCC thành công!");
                     taiDataNCC();
+<<<<<<< HEAD
                     LamMoiForm();
+=======
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
                 }
                 catch (Exception ex)
                 {

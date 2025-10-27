@@ -2,10 +2,15 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
 namespace qlbh_Vector.cls
 {
     class clsDonDatHang
     {
+<<<<<<< HEAD
         public int? SoHoaDon;              
         public string MaKhachHang = "";
         public string MaNhanVien = "";
@@ -39,10 +44,36 @@ namespace qlbh_Vector.cls
                 cn.closeConnect();
                 return newId;
             }
+=======
+        public string SoHoaDon { get; set; }
+        public string MaCongTy { get; set; }
+        public string MaNhanVien { get; set; }
+        public DateTime NgayDatHang { get; set; }
+        public DateTime NgayGiaoHang { get; set; }
+        public string NoiGiaoHang { get; set; }
+
+        clsKetNoi cn = new clsKetNoi();
+
+        public void themDDH()
+        {
+            string sql = "INSERT INTO DONDATHANG VALUES(@SOHOADON,@MACONGTY,@MANHANVIEN,@NGAYDATHANG,@NGAYGIAOHANG,@NOIGIAOHANG)";
+            SqlCommand cmd = new SqlCommand(sql, cn.con);
+            cmd.Parameters.AddWithValue("@SOHOADON", SoHoaDon);
+            cmd.Parameters.AddWithValue("@MACONGTY", MaCongTy);
+            cmd.Parameters.AddWithValue("@MANHANVIEN", MaNhanVien);
+            cmd.Parameters.AddWithValue("@NGAYDATHANG", NgayDatHang);
+            cmd.Parameters.AddWithValue("@NGAYGIAOHANG", NgayGiaoHang);
+            cmd.Parameters.AddWithValue("@NOIGIAOHANG", NoiGiaoHang);
+
+            cn.ketNoi();
+            cmd.ExecuteNonQuery();
+            cn.closeConnect();
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
         }
 
         public void suaDDH()
         {
+<<<<<<< HEAD
             if (SoHoaDon == null) throw new InvalidOperationException("Chưa chọn đơn đặt hàng để sửa.");
             string sql = @"UPDATE DONDATHANG
                             SET MAKHACHHANG=@MAKHACHHANG,
@@ -67,10 +98,25 @@ namespace qlbh_Vector.cls
                 cmd.ExecuteNonQuery();
                 cn.closeConnect();
             }
+=======
+            string sql = "UPDATE DONDATHANG SET MACONGTY=@MACONGTY, MANHANVIEN=@MANHANVIEN, NGAYDATHANG=@NGAYDATHANG, NGAYGIAOHANG=@NGAYGIAOHANG, NOIGIAOHANG=@NOIGIAOHANG WHERE SOHOADON=@SOHOADON";
+            SqlCommand cmd = new SqlCommand(sql, cn.con);
+            cmd.Parameters.AddWithValue("@SOHOADON", SoHoaDon);
+            cmd.Parameters.AddWithValue("@MACONGTY", MaCongTy);
+            cmd.Parameters.AddWithValue("@MANHANVIEN", MaNhanVien);
+            cmd.Parameters.AddWithValue("@NGAYDATHANG", NgayDatHang);
+            cmd.Parameters.AddWithValue("@NGAYGIAOHANG", NgayGiaoHang);
+            cmd.Parameters.AddWithValue("@NOIGIAOHANG", NoiGiaoHang);
+
+            cn.ketNoi();
+            cmd.ExecuteNonQuery();
+            cn.closeConnect();
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
         }
 
         public void xoaDDH()
         {
+<<<<<<< HEAD
             if (SoHoaDon == null) throw new InvalidOperationException("Chưa chọn đơn đặt hàng để xoá.");
 
             try
@@ -97,16 +143,32 @@ namespace qlbh_Vector.cls
             {
                 MessageBox.Show("Lỗi khi xóa đơn đặt hàng: " + ex.Message);
             }
+=======
+            string sql = "DELETE FROM DONDATHANG WHERE SOHOADON=@SOHOADON";
+            SqlCommand cmd = new SqlCommand(sql, cn.con);
+            cmd.Parameters.AddWithValue("@SOHOADON", SoHoaDon);
+
+            cn.ketNoi();
+            cmd.ExecuteNonQuery();
+            cn.closeConnect();
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
         }
 
         public DataTable laydulieuDDH(string sql)
         {
             cn.ketNoi();
             SqlDataAdapter da = new SqlDataAdapter(sql, cn.con);
+<<<<<<< HEAD
             DataTable tb = new DataTable();
             da.Fill(tb);
             cn.closeConnect();
             return tb;
+=======
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cn.closeConnect();
+            return dt;
+>>>>>>> 341a0d207a985845a0ee0b3bee7ba02ac76f09e1
         }
     }
 }
