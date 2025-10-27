@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 namespace qlbh_Vector.cls
 {
-    class clsDonDatHang
+    class cls ChiTietDH
     {
         public int? SoHoaDon;              
         public string MaKhachHang = "";
@@ -18,7 +18,7 @@ namespace qlbh_Vector.cls
 
         public int themDDH()
         {
-           
+
             string sql = @"INSERT INTO DONDATHANG (MAKHACHHANG, MANHANVIEN, NGAYDATHANG, NGAYGIAOHANG, NGAYCHUYENHANG, NOIGIAOHANG)
                             OUTPUT INSERTED.SOHOADON
                             VALUES (@MAKHACHHANG, @MANHANVIEN, @NGAYDATHANG, @NGAYGIAOHANG, @NGAYCHUYENHANG, @NOIGIAOHANG);
@@ -26,7 +26,7 @@ namespace qlbh_Vector.cls
             cn.ketNoi();
             using (SqlCommand cmd = new SqlCommand(sql, cn.con))
             {
-              
+
                 cmd.Parameters.AddWithValue("@MAKHACHHANG", MaKhachHang);
                 cmd.Parameters.AddWithValue("@MANHANVIEN", MaNhanVien);
                 cmd.Parameters.AddWithValue("@NGAYDATHANG", NgayDatHang);
@@ -34,7 +34,7 @@ namespace qlbh_Vector.cls
                 cmd.Parameters.AddWithValue("@NGAYCHUYENHANG", NgayChuyenHang);
                 cmd.Parameters.AddWithValue("@NOIGIAOHANG", NoiGiaoHang);
 
-               
+
                 int newId = Convert.ToInt32(cmd.ExecuteScalar());
                 cn.closeConnect();
                 return newId;
@@ -63,7 +63,7 @@ namespace qlbh_Vector.cls
                 cmd.Parameters.AddWithValue("@NGAYCHUYENHANG", NgayChuyenHang);
                 cmd.Parameters.AddWithValue("@NOIGIAOHANG", NoiGiaoHang);
 
-               
+
                 cmd.ExecuteNonQuery();
                 cn.closeConnect();
             }
